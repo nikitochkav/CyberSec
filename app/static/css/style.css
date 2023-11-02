@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    background-image: url('static/images/index.jpg'); /* Путь к вашему изображению */
+    background-size: cover; /* Растягивает изображение на всю страницу */
+    background-position: center; /* Центрирует изображение */
+}
+
+header {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #008CBA;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.content {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центрирует текст внутри .content */
+}
+
+.gif-container {
+    text-align: center; /* Центрирует гифки внутри контейнера */
+    margin-bottom: 20px; /* Добавляет отступ снизу */
+}
+
+.resized-gif {
+    width: 90%; /* Уменьшает гифку до 50% от исходного размера */
+    height: auto; /* Подстраивает высоту пропорционально ширине */
+}
+
+.left-gif, .right-gif {
+    width: 100px; /* Устанавливает ширину гифок */
+    height: auto; /* Подстраивает высоту пропорционально ширине */
+}
+
+.left-gif {
+    float: left; /* Размещает гифку слева */
+    margin-right: 100px; /* Добавляет отступ справа для разделения от формы */
+}
+
+.right-gif {
+    float: right; /* Размещает гифку справа */
+    margin-left: 100px; /* Добавляет отступ слева для разделения от формы */
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
