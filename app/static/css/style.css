@@ -1,33 +1,52 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
-    background-image: url('static/images/index.jpg'); /* Путь к вашему изображению */
-    background-size: cover; /* Растягивает изображение на всю страницу */
-    background-position: center; /* Центрирует изображение */
+    background-image: url('../images/logo3.jpg');
+    background-position: center;
+    animation: slideBg 20s linear infinite;
+}
+
+/* Ключевая анимация для движущегося фона */
+@keyframes slideBg {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
 }
 
 header {
-    background-color: #008CBA;
+    background-color: #333;
     color: white;
     padding: 10px 0;
     text-align: center;
 }
 
+nav {
+    float: right; 
+}
+
 nav ul {
-    list-style: none;
+    list-style-type: none;
+    margin: 0;
     padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    display: inline-block;
+    margin-left: 20px; 
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
+    color: #fff; 
+    font-weight: bold;
+}
+nav ul li a:hover {
+    color: #ccc;
 }
 
 .content {
@@ -37,6 +56,12 @@ nav ul li a {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+h1, h2 {
+    color: #333333;
+    font-weight: bold;
 }
 
 .form-group {
@@ -62,10 +87,15 @@ nav ul li a {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 15px 30px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+    display: inline-block;
 }
 
 .btn-primary:hover {
@@ -73,7 +103,7 @@ nav ul li a {
 }
 
 footer {
-    background-color: #008CBA;
+    background-color: #333; 
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -84,39 +114,42 @@ footer {
 
 
 
+
 .content {
-    max-width: 600px;
+    max-width: 900px;
     margin: 20px auto;
-    padding: 30px;
-    background-color: #ffffff;
+    padding: 40px;
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Центрирует текст внутри .content */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .gif-container {
-    text-align: center; /* Центрирует гифки внутри контейнера */
-    margin-bottom: 20px; /* Добавляет отступ снизу */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .resized-gif {
-    width: 90%; /* Уменьшает гифку до 50% от исходного размера */
-    height: auto; /* Подстраивает высоту пропорционально ширине */
+    width: 100%;
+    height: auto;
 }
 
 .left-gif, .right-gif {
-    width: 100px; /* Устанавливает ширину гифок */
-    height: auto; /* Подстраивает высоту пропорционально ширине */
+    width: 100px;
+    height: auto;
 }
 
 .left-gif {
-    float: left; /* Размещает гифку слева */
-    margin-right: 100px; /* Добавляет отступ справа для разделения от формы */
+    float: left;
+    margin-right: 100px;
+    margin-top: 20px; 
 }
 
 .right-gif {
-    float: right; /* Размещает гифку справа */
-    margin-left: 100px; /* Добавляет отступ слева для разделения от формы */
+    float: right;
+    margin-left: 100px;
+    margin-top: 20px; 
 }
 
 .btn-primary {
@@ -138,3 +171,382 @@ footer {
     background-color: #45a049;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-header {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+.table-description {
+    width: 60%;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.table-header {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+.table-description {
+    width: 60%;
+}
+
+.table-image img {
+    width: 250px;
+    height: auto;
+    max-width: 250px; 
+    border-radius: 10px;
+}
+
+
+.cookie-consent {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    left: 0;
+    width: calc(100% - 40px); 
+    background-color: #3498db; 
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 0.5s ease-in-out; 
+}
+
+.cookie-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+.cookie-content p {
+    margin: 0;
+}
+
+.buttons button,
+.buttons a {
+    color: #fff;
+    background-color: #2c3e50; 
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover,
+.buttons a:hover {
+    background-color: #1d2a35; 
+}
+
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.post {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
+}
+
+.post:hover {
+    transform: scale(1.02); 
+}
+
+.post h2 {
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.post p {
+    color: #555555;
+    line-height: 1.6;
+}
+
+.post-info {
+    color: #777; /* Цвет информации о посте */
+}
+
+.post-actions {
+    margin-top: 10px;
+}
+
+.edit-link,
+.delete-link,
+.post-link {
+    color: #3498db; 
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.edit-link:hover,
+.delete-link:hover,
+.post-link:hover {
+    color: #2980b9; 
+}
+
+/* Стили для формы добавления поста */
+.add-post-title {
+    color: #333333;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.add-post-form {
+    margin-top: 20px;
+}
+
+/* Стили для поисковой панели */
+.search-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Анимация для кнопки поиска */
+.search-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #ddd; 
+}
+
+.edit-link,
+.delete-link {
+    color: #e74c3c; 
+}
+
+.edit-link:hover,
+.delete-link:hover {
+    color: #c0392b; 
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  .post-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-header {
+    margin-bottom: 20px;
+  }
+  
+  .post-header h1 {
+    color: #333;
+  }
+  
+  .post-meta {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .post-content p {
+    line-height: 1.6;
+  }
+  
+  
+
+.card {
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #555;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #333; 
+    }
+
+
+.post-container {
+    background-image: url('path/to/background-image.jpg');
+    background-size: cover;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.post-header h1,
+.post-meta,
+.post-content p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.post-container.loaded .post-header h1,
+.post-container.loaded .post-meta,
+.post-container.loaded .post-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.comments-container {
+    margin-top: 30px;
+}
+
+.comment {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.add-comment-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-comment-form h3 {
+    color: #333;
+}
+
+.add-comment-form button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.add-comment-form button:hover {
+    background-color: #2980b9;
+}
+
+
+.logout-button {
+    margin-top: 3px; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40; 
+    padding: 15px; 
+}
+
+.company-name {
+    float: left; 
+}
+
+.company-name h1 {
+    margin: 0; 
+    color: #fff; 
+    font-size: 24px; 
+}
+
+.company-name {
+    display: flex;
+    align-items: center;
+}
+
+.company-logo {
+    width: 50px;
+    height: auto; 
+    margin-right: 10px; 
+}

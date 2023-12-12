@@ -1,0 +1,43 @@
+<!-- templates/forum_post.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="post-container loaded">
+    <div class="post-header">
+      <h1>{{ post.title }}</h1>
+      <p class="post-meta">Author: {{ post.user.username }} | Publication Date: {{ post.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    </div>
+    
+    <div class="post-content">
+      <p>{{ post.content }}</p>
+    </div>
+
+    <div class="comments-container">
+      <h2>Comments</h2>
+      {% if post.comments %}
+        {% for comment in post.comments %}
+          <div class="comment">
+            <p>{{ comment.content }}</p>
+            <p class="comment-meta">Author: {{ comment.user.username }} | Date: {{ comment.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No comments yet.</p>
+      {% endif %}
+    </div>
+
+    {% if current_user.is_authenticated %}
+      <div class="add-comment-form">
+        <h3>Add Comment</h3>
+        <form action="{{ url_for('add_comment', post_id=post.id) }}" method="post">
+          {{ form.csrf_token }}
+          {{ form.content.label }} {{ form.content(size=30) }}
+          <button type="submit">Submit Comment</button>
+        </form>
+      </div>
+    {% else %}
+      <p>To add a comment, please <a href="{{ url_for('login') }}">login</a>.</p>
+    {% endif %}
+  </div>
+{% endblock %}

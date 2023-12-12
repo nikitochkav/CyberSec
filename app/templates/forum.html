@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="search-container">
+    <label for="searchInput">Поиск по форумам:</label>
+    <input type="text" id="searchInput" name="searchInput" class="form-control" placeholder="Введите слово">
+    <button type="button" onclick="searchFunction()">Искать</button>
+  </div>
+  <h1 class="forum-title">Добро пожаловать на форум</h1>
+
+  {% for post in posts %}
+    <div class="post">
+      <h2 id="postTitle{{ post.id }}">{{ post.title }}</h2>
+      <p class="post-content">{{ post.content }}</p>
+      <p class="post-info">Автор: {{ post.user.username }} | Дата публикации: {{ post.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+      {% if is_admin or post.user == current_user %}
+        <div class="post-actions">
+          <a href="{{ url_for('edit_post', post_id=post.id) }}" class="edit-link">Редактировать</a>
+          <a href="{{ url_for('delete_post', post_id=post.id) }}" onclick="return confirm('Вы уверены?')" class="delete-link">Удалить</a>
+        </div>
+      {% endif %}
+      <a href="{{ url_for('forum_post', post_id=post.id) }}" class="post-link">Читать далее</a>
+    </div>
+  {% endfor %}
+
+  <h2 class="add-post-title">Добавить новый пост</h2>
+  <form method="POST" action="{{ url_for('forum') }}" class="add-post-form">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      <label for="title" class="form-label">Заголовок:</label>
+      <input type="text" name="title" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="content" class="form-label">Содержание:</label>
+      <textarea name="content" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn-primary">Добавить пост</button>
+  </form>
+
+  <script>
+    function searchFunction() {
+      var input, filter, posts, post, title, i;
+      input = document.getElementById('searchInput');
+      filter = input.value.toUpperCase();
+      posts = document.getElementsByClassName('post');
+
+      for (i = 0; i < posts.length; i++) {
+        post = posts[i];
+        title = post.getElementsByTagName('h2')[0];
+        if (title) {
+          if (title.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            post.style.display = '';
+          } else {
+            post.style.display = 'none';
+          }
+        }
+      }
+    }
+  </script>
+{% endblock %}

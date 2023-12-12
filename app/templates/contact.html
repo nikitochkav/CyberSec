@@ -1,31 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="content">
-    <h2>Свяжитесь с нами</h2>
-</div>
+    <div class="content">
+        <h2>Свяжитесь с нами</h2>
+    </div>
 
-<div class="gif-container">
-    <img src="{{ url_for('static', filename='images/left_gif.gif') }}" alt="Гифка" class="gif left-gif">
-    <img src="{{ url_for('static', filename='images/right_gif.gif') }}" alt="Гифка" class="gif right-gif">
-</div>
-
-<div class="content">
-    <form method="POST" action="">
-        {{ form.hidden_tag() }} 
-        <div class="form-group">
-            {{ form.name.label(class="form-label") }}
-            {{ form.name(class="form-control") }}
-        </div>
-        <div class="form-group">
-            {{ form.email.label(class="form-label") }}
-            {{ form.email(class="form-control") }}
-        </div>
-        <div class="form-group">
-            {{ form.message.label(class="form-label") }}
-            {{ form.message(class="form-control", rows="5") }}
-        </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-    </form>
-</div>
+    <div class="content">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.message.label(class="form-label") }}
+                {{ form.message(class="form-control", rows="5") }}
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
 {% endblock %}

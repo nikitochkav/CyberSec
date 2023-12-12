@@ -1,48 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
-<body>
-    <header>
-        <h1>CyberSec</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Главная</a></li>
-                <li><a href="{{ url_for('about') }}">О нас</a></li>
-                <li><a href="{{ url_for('contact') }}">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="content">
-        <h2>Регистрация</h2>
-        <form method="POST" action="{{ url_for('register') }}">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                <label class="form-label" for="email">Email:</label>
-                {{ form.email(class="form-control") }}
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="password">Пароль:</label>
-                {{ form.password(class="form-control") }}
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="confirm_password">Подтвердите пароль:</label>
-                {{ form.confirm_password(class="form-control") }}
-            </div>
-            <button type="submit" class="btn-primary">Зарегистрироваться</button>
-        </form>
-    </div>
-
-    <footer>
-        &copy; {{ current_year }} CyberSec
-    </footer>
-</body>
-
-</html>
+{% block content %}
+    <h1>Регистрация</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.username.label(class="form-control-label") }}
+            {{ form.username(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            {{ form.email(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-control-label") }}
+            {{ form.password(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.confirm_password.label(class="form-control-label") }}
+            {{ form.confirm_password(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.admin.label(class="form-control-label") }}
+            {{ form.admin(class="form-check-input") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}

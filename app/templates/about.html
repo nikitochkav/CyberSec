@@ -5,26 +5,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>About Us</title>
+    <title>About Us | CyberSec</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.ico') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ccc;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+
+        h2, h3 {
+            color: #333333;
+        }
+
+        ul {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        script {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
 </head>
 
 <body>
     <header>
+        <div class="company-name">
+            <img src="{{ url_for('static', filename='images/fat_hacker.gif') }}" alt="Company Logo" class="company-logo">
+            <h1>CyberSec</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="{{ url_for('index') }}">Главная</a></li>
-                <li><a href="{{ url_for('about') }}">О нас</a></li>
-                <li><a href="{{ url_for('contact') }}">Контакты</a></li>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/about">О компании</a></li>
+                <li><a href="/contact">Контакты</a></li>
+                <li><a href="{{ url_for('user_dashboard') }}">Личный кабинет</a></li>
+                {% if current_user.is_anonymous %}
+                    <li><a href="/register">Регистрация</a></li>
+                    <li><a href="/login">Войти</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
 
     <div class="content">
-        <h1>CyberSec</h1>
-        <p>Мы – ваш надежный партнер в мире технических решений. </p>
+        <h2>Добро пожаловать на форум CyberSec: место, где обсуждаются и решаются вопросы кибербезопасности</h2>
+        <p>Наши пользователи – представители крупных компаний, которые ценят значение безопасности в цифровом мире. Форум CyberSec создан для того, чтобы объединить экспертов, обсудить актуальные вопросы и поделиться опытом в сфере кибербезопасности.</p>
 
-        <p>Наша компания стремится предоставлять нашим клиентам высококачественные технические услуги. Наша цель заключается
-            в предоставлении инновационных решений, исключительного сервиса и исключительной ценности каждому клиенту</p>
+        <h3>Как мы помогаем</h3>
+        <p>После обсуждения на форуме, наша компания предоставляет передовые технические решения для кибербезопасности, помогая крупным организациям обеспечить надежную защиту от кибератак и сохранить конфиденциальность своих данных.</p>
+
+        <h3>Преимущества участия в нашем форуме:</h3>
+        <ul>
+            <li><b>Экспертные обсуждения</b>: Участвуйте в обмене мнениями с лучшими специалистами в области кибербезопасности.</li>
+            <li><b>Инновационные решения</b>: Будьте в курсе последних технологических трендов и получайте доступ к передовым решениям.</li>
+            <li><b>Сетевое взаимодействие</b>: Знакомьтесь с коллегами, делитесь опытом и создавайте ценные деловые связи.</li>
+        </ul>
+
+        <h3>Присоединяйтесь к нам и сделайте свой бизнес более безопасным вместе с CyberSec!</h3>
+
+        <div class="quote">
+            "Вместе мы создаем киберпространство, в котором ваш бизнес защищен от любых киберугроз."
+        </div>
     </div>
 
     <footer>

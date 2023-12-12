@@ -1,0 +1,18 @@
+<!-- templates/delete_post.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Удалить пост</h1>
+        <p class="card-text mb-4">Вы уверены, что хотите удалить этот пост?</p>
+        <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}">
+          <button type="submit" class="btn btn-danger">Да, удалить</button>
+          <a href="{{ url_for('forum') }}" class="btn btn-secondary">Отмена</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

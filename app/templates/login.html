@@ -1,51 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Вход</title>
-</head>
-
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Главная</a></li>
-                <li><a href="{{ url_for('about') }}">О компании</a></li>
-                <li><a href="{{ url_for('contact') }}">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
-
+{% block content %}
     <div class="content">
         <h1>Добро пожаловать!</h1>
         <p>Пожалуйста, войдите в свой аккаунт.</p>
-
         <form method="POST" action="{{ url_for('login') }}" class="form-group">
             {{ form.hidden_tag() }}
             <div class="form-group">
                 <label class="form-label" for="email">Email:</label>
                 {{ form.email(class="form-control", placeholder="Введите ваш email") }}
             </div>
-
             <div class="form-group">
                 <label class="form-label" for="password">Пароль:</label>
                 {{ form.password(class="form-control", placeholder="Введите ваш пароль") }}
             </div>
-
             <button type="submit" class="btn-primary">Войти</button>
         </form>
-
         <p>Еще нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрируйтесь</a></p>
     </div>
-
-    <footer>
-        &copy; 2023 CyberSec. Все права защищены.
-    </footer>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-
-</html>
+{% endblock %}
